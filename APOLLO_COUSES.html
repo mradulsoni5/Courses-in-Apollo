@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apollo Group Of Institutions - Course Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Source+Sans+Pro:wght@400;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+    }
+    
+    .course-card {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .course-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .course-card:hover .card-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .card-icon {
+      transition: transform 0.4s ease;
+    }
+    
+    .glow-effect {
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+    }
+    
+    .gradient-border {
+      position: relative;
+    }
+    
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+      border-radius: 8px 8px 0 0;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    .shimmer-text {
+      background: linear-gradient(90deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    .category-tab {
+      transition: all 0.3s ease;
+    }
+    
+    .category-tab.active {
+      background: linear-gradient(135deg, #1a365d, #2c5282);
+      color: #f4d03f;
+      box-shadow: 0 4px 15px rgba(26, 54, 93, 0.4);
+    }
+    
+    .category-tab:not(.active):hover {
+      background: rgba(26, 54, 93, 0.1);
+    }
+
+    .curriculum-item {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 8px;
+      padding: 12px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .outcome-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .relevance-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .skill-badge {
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(139, 92, 246, 0.2));
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #a78bfa;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div id="app-container" class="h-full w-full overflow-auto" style="background: linear-gradient(135deg, #0f1419 0%, #1a202c 50%, #0f1419 100%);"><!-- Decorative Elements -->
+   <div class="fixed top-20 left-10 w-32 h-32 rounded-full opacity-10 floating" style="background: radial-gradient(circle, #d4af37, transparent); pointer-events: none;"></div>
+   <div class="fixed bottom-20 right-10 w-48 h-48 rounded-full opacity-10 floating" style="background: radial-gradient(circle, #2c5282, transparent); animation-delay: -3s; pointer-events: none;"></div>
+   <div class="relative z-10 max-w-7xl mx-auto px-4 py-8"><!-- Header Section -->
+    <header class="text-center mb-12">
+     <div class="inline-flex items-center gap-3 mb-4">
+
+  <!-- Left Logo -->
+  <img src="C:/Users/mradu/Downloads/AIT_LOGO.png" alt="Left Logo" class="h-36 w-auto">
+
+  <svg class="w-12 h-12" viewbox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="28" stroke="#d4af37" stroke-width="2" />
+    <path d="M30 8 L30 52 M15 20 L45 20 M12 35 L48 35" stroke="#d4af37" stroke-width="2" />
+    <circle cx="30" cy="30" r="8" fill="#d4af37" />
+    <path d="M22 15 L30 8 L38 15" stroke="#f4d03f" stroke-width="2" fill="none" />
+  </svg>
+
+  <h1 id="institution-name" class="font-heading text-4xl md:text-5xl font-bold text-white">
+    Apollo Group Of Institutions
+  </h1>
+
+  <!-- Right Logo -->
+  <img src="C:/Users/mradu/Downloads/AIPS_LOGO.png" alt="Right Logo" class="h-36 w-auto">
+
+</div>
+
+     <p id="tagline" class="shimmer-text text-xl font-semibold tracking-wider">Shaping Future Leaders Since 2008</p>
+     <div class="mt-6 flex justify-center gap-2"><span class="px-4 py-1 rounded-full text-sm font-semibold" style="background: rgba(212, 175, 55, 0.2); color: #f4d03f;">🏗️ Apollo Institute of Technology</span> <span class="px-4 py-1 rounded-full text-sm font-semibold" style="background: rgba(212, 175, 55, 0.2); color: #f4d03f;">📚 Apollo Institute of Professional Studies</span>
+     </div>
+    </header><!-- Category Tabs -->
+    <nav class="flex flex-wrap justify-center gap-3 mb-10"><button class="category-tab active px-6 py-3 rounded-full font-semibold text-sm" style="color: #e2e8f0; border: 1px solid rgba(212, 175, 55, 0.3);" data-category="all"> 📚 All Programs </button> <button class="category-tab px-6 py-3 rounded-full font-semibold text-sm" style="color: #e2e8f0; border: 1px solid rgba(212, 175, 55, 0.3);" data-category="ait"> 🏗️ AIT Programs </button> <button class="category-tab px-6 py-3 rounded-full font-semibold text-sm" style="color: #e2e8f0; border: 1px solid rgba(212, 175, 55, 0.3);" data-category="aips"> 📊 AIPS Programs </button>
+    </nav><!-- AIT Sub-Categories -->
+    <div id="ait-subcategories" class="hidden flex flex-wrap justify-center gap-3 mb-10"><button class="subcategory-tab px-6 py-2 rounded-lg font-semibold text-sm" style="color: #e2e8f0; border: 1px solid rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.1);" data-subcategory="btech"> 🎓 B.Tech </button> <button class="subcategory-tab px-6 py-2 rounded-lg font-semibold text-sm" style="color: #e2e8f0; border: 1px solid rgba(20, 184, 166, 0.4); background: rgba(20, 184, 166, 0.1);" data-subcategory="polytechnic"> 🏗️ Polytechnic </button>
+    </div><!-- Course Detail Modal -->
+    <div id="course-detail-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center" style="background: rgba(0, 0, 0, 0.7);">
+     <div class="bg-gray-900 rounded-2xl max-w-4xl w-full mx-4 max-h-[80vh] overflow-y-auto" style="background: linear-gradient(145deg, #1e293b, #0f172a);">
+      <div class="sticky top-0 flex justify-between items-center p-6" style="background: linear-gradient(135deg, #1a365d, #2c5282); border-bottom: 1px solid rgba(212, 175, 55, 0.2);">
+       <h2 id="modal-course-title" class="font-heading text-2xl font-bold text-white"></h2><button id="close-modal-btn" class="text-white hover:text-red-400 transition text-2xl">✕</button>
+      </div>
+      <div class="p-8 space-y-8"><!-- What You'll Study -->
+       <section>
+        <h3 class="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2"><span style="color: #f4d03f;">📚</span> What You'll Study</h3>
+        <div id="modal-curriculum" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+       </section><!-- Career Outcomes -->
+       <section>
+        <h3 class="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2"><span style="color: #f4d03f;">🚀</span> After Completion</h3>
+        <div id="modal-outcomes" class="space-y-2"></div>
+       </section><!-- Industry Relevance -->
+       <section>
+        <h3 class="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2"><span style="color: #f4d03f;">🏢</span> Why Industry Needs This</h3>
+        <div id="modal-relevance" class="space-y-2"></div>
+       </section><!-- Skills Developed -->
+       <section>
+        <h3 class="font-heading text-xl font-bold text-white mb-4 flex items-center gap-2"><span style="color: #f4d03f;">⚡</span> Skills You'll Develop</h3>
+        <div id="modal-skills" class="flex flex-wrap gap-2"></div>
+       </section>
+      </div>
+     </div>
+    </div><!-- Course Grid -->
+    <div id="course-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"><!-- B.TECH PROGRAMS -->
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="btech" data-course-id="btech-cse">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+         💻
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">4 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">B.Tech Computer Science &amp; Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Master AI, Machine Learning, Cloud Computing, Web Development, and Software Engineering with industry-aligned curriculum.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">AI/ML</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Web Dev</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">DevOps</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #3b82f6, #1d4ed8); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="btech" data-course-id="btech-aiml">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+         🤖
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">4 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">B.Tech CS &amp; AI/ML</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Specialized in Artificial Intelligence and Machine Learning with deep learning, NLP, and computer vision expertise.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Deep Learning</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">NLP</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Computer Vision</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #8b5cf6, #6d28d9); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="btech" data-course-id="btech-electrical">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #10b981, #059669);">
+         ⚡
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">4 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">B.Tech Electrical Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Power systems, renewable energy, smart grids, and high-voltage transmission technologies for sustainable infrastructure.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Solar Energy</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Power Grid</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Smart Cities</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #10b981, #059669); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="btech" data-course-id="btech-civil">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+         🏗️
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">4 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">B.Tech Civil Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Infrastructure design, sustainable construction, structural analysis, and project management with site experience.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">CAD/BIM</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Structures</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Green Build</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #f59e0b, #d97706); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="btech" data-course-id="btech-mechanical">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+         ⚙️
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">4 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">B.Tech Mechanical Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Thermal systems, CAD design, robotics, manufacturing processes, and automotive technologies with hands-on labs.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">CAD/CAM</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Robotics</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Automation</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #ec4899, #be185d); color: white;"> Explore Program → </button>
+      </div>
+     </article><!-- POLYTECHNIC PROGRAMS -->
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="polytechnic" data-course-id="poly-civil">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+         🏗️
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(20, 184, 166, 0.2); color: #2dd4bf;">3 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">Diploma Civil Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Practical training in construction, surveying, material testing, and site supervision with job placements.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Surveying</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Materials</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Construction</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #14b8a6, #0d9488); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="polytechnic" data-course-id="poly-mechanical">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+         ⚙️
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(14, 165, 233, 0.2); color: #38bdf8;">3 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">Diploma Mechanical Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Machine design, welding, metallurgy, and CNC operations with industry certification and apprenticeships.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">CNC/CAD</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Welding</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Manufacturing</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #0ea5e9, #0284c7); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="polytechnic" data-course-id="poly-electrical">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #f97316, #c2410c);">
+         ⚡
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(249, 115, 22, 0.2); color: #fb923c;">3 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">Diploma Electrical Engineering</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Power distribution, wiring, maintenance systems, and renewable energy installations with practical training.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Power Sys</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Wiring</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Renewable</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #f97316, #c2410c); color: white;"> Explore Program → </button>
+      </div>
+     </article><!-- MBA PROGRAMS -->
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-hr">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #6366f1, #4338ca);">
+         👥
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - Human Resources</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Talent management, organizational development, employee relations, and strategic HR with case studies.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Talent Mgmt</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">OD</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Analytics</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #6366f1, #4338ca); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-it">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+         💻
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - Information Technology</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">IT strategy, digital transformation, cybersecurity management, and technology leadership programs.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">IT Strategy</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Digital Trans</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Cyber Sec</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #3b82f6, #1d4ed8); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-marketing">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #ec4899, #be185d);">
+         📢
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - Marketing</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Brand management, digital marketing, consumer psychology, and market research with real campaigns.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Digital Mktg</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Brand Mgmt</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Analytics</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #ec4899, #be185d); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-finance">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #10b981, #059669);">
+         💰
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - Finance</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Corporate finance, investment analysis, risk management, and financial planning with market exposure.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Corp Finance</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Investments</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Risk Mgmt</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #10b981, #059669); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-ib">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+         🌍
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - International Business</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Global trade, cross-cultural management, international finance, and export-import operations.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Global Trade</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Forex</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Logistics</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #f59e0b, #d97706); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="ait" data-subcategory="mba" data-course-id="mba-ops">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">
+         📊
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">2 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">MBA - Operations Management</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Supply chain, process optimization, quality management, and lean manufacturing with Six Sigma.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Supply Chain</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Lean/Six Sig</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Quality</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #8b5cf6, #6d28d9); color: white;"> Explore Program → </button>
+      </div>
+     </article><!-- BBA & BCA PROGRAMS -->
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="aips" data-course-id="bba">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+         📚
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(20, 184, 166, 0.2); color: #2dd4bf;">3 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">BBA - Bachelor of Business Administration</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Accounting, finance, marketing, and business management fundamentals with corporate internships.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Accounting</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Finance</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Marketing</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #14b8a6, #0d9488); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+     <article class="course-card gradient-border rounded-xl glow-effect" style="background: linear-gradient(145deg, #1e293b, #0f172a);" data-category="aips" data-course-id="bca">
+      <div class="p-6">
+       <div class="flex items-start justify-between mb-4">
+        <div class="card-icon w-16 h-16 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+         💾
+        </div><span class="px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(14, 165, 233, 0.2); color: #38bdf8;">3 Years</span>
+       </div>
+       <h3 class="font-heading text-xl font-bold text-white mb-2">BCA - Bachelor of Computer Applications</h3>
+       <p class="text-sm mb-4" style="color: #94a3b8;">Software development, databases, web technology, and programming with live project experience.</p>
+       <div class="flex flex-wrap gap-2 mb-4"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Web Dev</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Database</span> <span class="px-2 py-1 rounded text-xs" style="background: rgba(255,255,255,0.1); color: #cbd5e1;">Programming</span>
+       </div><button class="explore-btn w-full py-3 rounded-lg font-semibold text-sm transition-all hover:opacity-90" style="background: linear-gradient(90deg, #0ea5e9, #0284c7); color: white;"> Explore Program → </button>
+      </div>
+     </article>
+    </div><!-- Stats Section -->
+    <section class="mt-16 p-8 rounded-2xl" style="background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(26, 54, 93, 0.2)); border: 1px solid rgba(212, 175, 55, 0.2);">
+     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+       <div class="text-4xl font-bold shimmer-text font-heading">
+        30+
+       </div>
+       <div class="text-sm mt-1" style="color: #94a3b8;">
+        Years of Excellence
+       </div>
+      </div>
+      <div>
+       <div class="text-4xl font-bold shimmer-text font-heading">
+        50K+
+       </div>
+       <div class="text-sm mt-1" style="color: #94a3b8;">
+        Alumni Network
+       </div>
+      </div>
+      <div>
+       <div class="text-4xl font-bold shimmer-text font-heading">
+        95%
+       </div>
+       <div class="text-sm mt-1" style="color: #94a3b8;">
+        Placement Rate
+       </div>
+      </div>
+      <div>
+       <div class="text-4xl font-bold shimmer-text font-heading">
+        200+
+       </div>
+       <div class="text-sm mt-1" style="color: #94a3b8;">
+        Industry Partners
+       </div>
+      </div>
+     </div>
+    </section><!-- Footer -->
+    <footer class="mt-12 text-center pb-8">
+     <p class="text-sm" style="color: #64748b;">© 2024 Apollo Group Of Institutions. All rights reserved.</p>
+     <p class="text-xs mt-2" style="color: #475569;">Empowering Minds, Transforming Lives</p>
+    </footer>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      institution_name: "Apollo Group Of Institutions",
+      tagline: "Shaping Future Leaders Since 2008",
+      explore_button_text: "Explore Program →",
+      primary_color: "#0f1419",
+      accent_color: "#d4af37",
+      text_color: "#ffffff",
+      font_family: "Playfair Display",
+      font_size: 16
+    };
+    
+    let config = { ...defaultConfig };
+
+    // Course Details Data
+    const courseDetails = {
+      'btech-cse': {
+        title: 'B.Tech Computer Science & Engineering',
+        curriculum: [
+          'Data Structures & Algorithms',
+          'Web Development & Frontend',
+          'Database Management Systems',
+          'Cloud Computing & AWS',
+          'Artificial Intelligence',
+          'Software Engineering',
+          'Operating Systems',
+          'Cybersecurity Fundamentals'
+        ],
+        outcomes: [
+          '✓ Software Developer / Engineer roles in top tech companies',
+          '✓ Full-Stack Developer with proficiency in modern frameworks',
+          '✓ Cloud Solutions Architect credentials (AWS, Azure)',
+          '✓ AI/ML Specialist in emerging tech companies',
+          '✓ Startup founder with technical expertise',
+          '✓ Average salary: ₹8-15 LPA (starting), ₹25+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Digital transformation driving demand for skilled developers worldwide',
+          '🔹 AI/ML revolution requires professionals with strong fundamentals',
+          '🔹 Every industry needs software solutions and cloud infrastructure',
+          '🔹 Cybersecurity threats increasing demand for security experts',
+          '🔹 Startup ecosystem actively hiring for tech positions'
+        ],
+        skills: ['Python', 'JavaScript', 'Java', 'SQL', 'React', 'Node.js', 'AWS', 'Problem Solving', 'System Design', 'Version Control']
+      },
+      'btech-aiml': {
+        title: 'B.Tech CS & AI/ML',
+        curriculum: [
+          'Machine Learning Algorithms',
+          'Deep Learning & Neural Networks',
+          'Natural Language Processing',
+          'Computer Vision & Image Processing',
+          'TensorFlow & PyTorch',
+          'Reinforcement Learning',
+          'Big Data Analytics',
+          'AI Ethics & Responsible AI'
+        ],
+        outcomes: [
+          '✓ ML Engineer at FAANG companies (Google, Amazon, Meta, Netflix, Apple)',
+          '✓ AI Research Scientist in tech and AI startups',
+          '✓ Data Science roles in finance, healthcare, and e-commerce',
+          '✓ NLP Specialist for chatbots and language models',
+          '✓ Computer Vision expert for autonomous systems',
+          '✓ Average salary: ₹12-20 LPA (starting), ₹35+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 AI is revolutionizing every industry - healthcare, finance, retail, manufacturing',
+          '🔹 Global AI market projected to reach $1.8 Trillion by 2030',
+          '🔹 Shortage of 1.4M AI professionals globally',
+          '🔹 Companies investing heavily in AI-driven automation and analytics',
+          '🔹 High compensation packages due to specialized skill demand'
+        ],
+        skills: ['Python', 'TensorFlow', 'PyTorch', 'Pandas', 'Scikit-learn', 'NLP', 'Computer Vision', 'Statistics', 'Data Analysis', 'SQL']
+      },
+      'btech-electrical': {
+        title: 'B.Tech Electrical Engineering',
+        curriculum: [
+          'Power Systems & Grid Management',
+          'Renewable Energy Technologies',
+          'Smart Grid & IoT Systems',
+          'Electric Machine Design',
+          'Power Electronics',
+          'Energy Storage Systems',
+          'HVDC Transmission',
+          'Energy Efficiency & Conservation'
+        ],
+        outcomes: [
+          '✓ Power System Engineer in utilities and state electricity boards',
+          '✓ Renewable Energy Specialist in solar/wind companies',
+          '✓ Smart Grid Designer for modern infrastructure',
+          '✓ Research positions in advanced energy technologies',
+          '✓ Government sector roles (PSU, NTPC, Power Grid)',
+          '✓ Average salary: ₹6-10 LPA (starting), ₹20+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Global shift towards clean energy and net-zero targets',
+          '🔹 India targeting 500 GW renewable energy by 2030',
+          '🔹 Infrastructure development requiring power systems engineers',
+          '🔹 Smart cities and IoT integration in electrical grids',
+          '🔹 Government incentives for renewable energy projects'
+        ],
+        skills: ['Power Systems Analysis', 'MATLAB', 'ETAP Software', 'CAD', 'PLC Programming', 'Circuit Design', 'Solar Design', 'Grid Analysis', 'Energy Audit', 'Control Systems']
+      },
+      'btech-civil': {
+        title: 'B.Tech Civil Engineering',
+        curriculum: [
+          'Structural Design & Analysis',
+          'Building Information Modeling (BIM)',
+          'Construction Management',
+          'Environmental Engineering',
+          'Geotechnical Engineering',
+          'Transportation Systems',
+          'Project Planning & Scheduling',
+          'Sustainable Building Practices'
+        ],
+        outcomes: [
+          '✓ Structural Designer for construction and infrastructure firms',
+          '✓ Project Manager overseeing large-scale construction projects',
+          '✓ Consultant with specialized expertise in BIM/CAD',
+          '✓ Government engineer in public works and irrigation departments',
+          '✓ Entrepreneur in construction and real estate sector',
+          '✓ Average salary: ₹5-8 LPA (starting), ₹18+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Infrastructure boom across India - highways, metros, airports, smart cities',
+          '🔹 $1.4 Trillion infrastructure investment announced by government',
+          '🔹 Construction industry expanding at 8% CAGR',
+          '🔹 Sustainable and green building practices becoming mandatory',
+          '🔹 Urban development creating continuous demand for engineers'
+        ],
+        skills: ['AutoCAD', 'BIM (Revit)', 'STAAD.Pro', 'Project Management', 'Site Planning', 'Quality Control', 'Cost Estimation', 'HSE Management', 'Materials Science', 'Surveying']
+      },
+      'btech-mechanical': {
+        title: 'B.Tech Mechanical Engineering',
+        curriculum: [
+          'Thermodynamics & Heat Transfer',
+          'Machine Design & Analysis',
+          'Fluid Mechanics & Hydraulics',
+          'CNC Programming & CAD/CAM',
+          'Robotics & Automation',
+          'Manufacturing Processes',
+          'Industrial Automation',
+          'Renewable Energy Systems'
+        ],
+        outcomes: [
+          '✓ Design Engineer in automotive and aerospace sectors',
+          '✓ Manufacturing Engineer optimizing production processes',
+          '✓ Robotics Specialist in automation and Industry 4.0',
+          '✓ Thermal Systems Engineer in power and HVAC industries',
+          '✓ Quality Assurance manager in manufacturing',
+          '✓ Average salary: ₹6-9 LPA (starting), ₹22+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Automotive industry transitioning to electric vehicles - huge engineering demand',
+          '🔹 Industry 4.0 driving automation and robotics adoption',
+          '🔹 Manufacturing renaissance with "Make in India" initiatives',
+          '🔹 Defense and aerospace sectors expanding hiring',
+          '🔹 Thermal energy and cooling systems in constant demand'
+        ],
+        skills: ['CATIA', 'ANSYS', 'CNC Programming', 'PLC Automation', 'MATLAB', 'Welding Technology', 'Thermodynamics', 'Pneumatics', 'GD&T', 'ERP Systems']
+      },
+      'poly-civil': {
+        title: 'Diploma Civil Engineering',
+        curriculum: [
+          'Surveying & Site Documentation',
+          'Construction Methods & Materials',
+          'Building Estimation & Costing',
+          'Structural Basics & Foundation Design',
+          'Road & Bridge Construction',
+          'Safety & Quality Assurance',
+          'Equipment Operation & Maintenance',
+          'Site Supervision Practices'
+        ],
+        outcomes: [
+          '✓ Site Supervisor / Engineer at construction sites',
+          '✓ Quality Inspector monitoring construction standards',
+          '✓ Surveyor conducting land and building surveys',
+          '✓ Estimate & Rate Analyst for project costing',
+          '✓ Advancement to Degree or Managerial roles',
+          '✓ Average salary: ₹3-5 LPA (starting), ₹10-12 LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Construction sites need skilled supervisors and inspectors daily',
+          '🔹 Practical training makes graduates immediately job-ready',
+          '🔹 Direct entry into government sector (PWD, Railways, Irrigation)',
+          '🔹 High demand for diploma holders due to 3-year program duration',
+          '🔹 Pathway to upgrade to degree programs'
+        ],
+        skills: ['Surveying Equipment', 'Blueprint Reading', 'Cost Estimation', 'Material Testing', 'AutoCAD', 'Site Management', 'Safety Protocols', 'Quality Inspection', 'Progress Monitoring', 'Team Coordination']
+      },
+      'poly-mechanical': {
+        title: 'Diploma Mechanical Engineering',
+        curriculum: [
+          'Machine Operation & Maintenance',
+          'CNC Machine Programming',
+          'Welding Technology & Techniques',
+          'Fitting & Assembly',
+          'Lathe & Milling Operations',
+          'Quality Control Methods',
+          'Equipment Troubleshooting',
+          'Factory Layout & Organization'
+        ],
+        outcomes: [
+          '✓ CNC Machine Operator in manufacturing facilities',
+          '✓ Maintenance Technician for industrial machinery',
+          '✓ Quality Inspector in production plants',
+          '✓ Skilled Worker with trade certification',
+          '✓ Supervisor after gaining experience',
+          '✓ Average salary: ₹3-5 LPA (starting), ₹8-10 LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Manufacturing sector always needs skilled operators and technicians',
+          '🔹 Diploma holders transition into supervisory roles quickly',
+          '🔹 Automotive and component manufacturing in high growth mode',
+          '🔹 Immediate employment opportunity upon graduation',
+          '🔹 Government apprenticeship programs and further training available'
+        ],
+        skills: ['CNC Programming', 'Welding', 'Lathe Operation', 'Milling Machines', 'Metrology', 'Maintenance', 'Safety Practices', 'Drawing Interpretation', 'Tool & Die Making', 'Fitting Techniques']
+      },
+      'poly-electrical': {
+        title: 'Diploma Electrical Engineering',
+        curriculum: [
+          'Electrical Wiring Systems',
+          'Transformer & Motor Maintenance',
+          'Power Distribution Installation',
+          'Renewable Energy System Installation',
+          'Troubleshooting & Repair',
+          'Electrical Safety & Codes',
+          'Panel Board Assembly',
+          'Industrial Control Systems'
+        ],
+        outcomes: [
+          '✓ Electrician in residential, commercial, and industrial sectors',
+          '✓ Maintenance Technician for power and electrical systems',
+          '✓ Installation Supervisor for power projects',
+          '✓ Renewable Energy Technician for solar/wind projects',
+          '✓ Self-employed contractor with technical expertise',
+          '✓ Average salary: ₹3-5 LPA (starting), ₹8-12 LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Skilled electricians always in high demand across all sectors',
+          '🔹 Solar installation industry growing at 40% annually',
+          '🔹 Building and infrastructure development needs electrical technicians',
+          '🔹 High self-employment potential with good income',
+          '🔹 Expatriate opportunities in Gulf and developed countries'
+        ],
+        skills: ['Wiring & Installation', 'Troubleshooting', 'Transformer Testing', 'Panel Assembly', 'Motor Rewinding', 'Safety Compliance', 'Blueprint Reading', 'Solar Installation', 'Maintenance', 'Power Systems']
+      },
+      'mba-hr': {
+        title: 'MBA - Human Resources',
+        curriculum: [
+          'Talent Acquisition & Recruitment',
+          'Employee Relations Management',
+          'Compensation & Benefits Planning',
+          'Organizational Development',
+          'HR Analytics & Data-Driven Decision Making',
+          'Leadership Development Programs',
+          'Change Management',
+          'Labor Laws & Compliance'
+        ],
+        outcomes: [
+          '✓ HR Manager overseeing recruitment and employee engagement',
+          '✓ Talent Acquisition Lead in multinational corporations',
+          '✓ Organizational Development consultant for transformation projects',
+          '✓ HR Business Partner supporting business strategy',
+          '✓ HR Director or VP roles after experience',
+          '✓ Average salary: ₹8-12 LPA (starting), ₹30+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Companies competing fiercely for top talent - need HR strategists',
+          '🔹 Diversity, equity, and inclusion becoming board-level priorities',
+          '🔹 Employee retention costs make HR expertise highly valued',
+          '🔹 Remote work and gig economy creating new HR challenges',
+          '🔹 HR technology and analytics becoming critical competitive advantage'
+        ],
+        skills: ['Recruitment', 'Employee Relations', 'Compensation Design', 'HR Analytics', 'HRIS Systems', 'Payroll Management', 'Leadership', 'Conflict Resolution', 'Change Management', 'Data Analysis']
+      },
+      'mba-it': {
+        title: 'MBA - Information Technology',
+        curriculum: [
+          'IT Strategy & Digital Transformation',
+          'IT Project Management',
+          'Cybersecurity Risk Management',
+          'Cloud Computing Strategy',
+          'IT Service Management (ITIL)',
+          'Data Analytics & Big Data',
+          'Technology Innovation',
+          'IT Governance & Compliance'
+        ],
+        outcomes: [
+          '✓ IT Manager or CIO (Chief Information Officer) at enterprises',
+          '✓ Digital Transformation Lead for legacy system modernization',
+          '✓ IT Strategy Consultant for Fortune 500 companies',
+          '✓ IT Service Delivery Manager at managed services providers',
+          '✓ Technology Product Manager in tech companies',
+          '✓ Average salary: ₹10-15 LPA (starting), ₹40+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Every business undergoing digital transformation',
+          '🔹 Cybersecurity threats making IT security skills premium-priced',
+          '🔹 Cloud migration and IoT creating technical management roles',
+          '🔹 Tech companies expanding globally needing IT leaders',
+          '🔹 Blockchain and emerging tech requiring management expertise'
+        ],
+        skills: ['IT Strategy', 'Project Management', 'Cybersecurity', 'Cloud Platforms', 'Data Analytics', 'ITIL', 'Process Improvement', 'Vendor Management', 'IT Governance', 'Business Continuity']
+      },
+      'mba-marketing': {
+        title: 'MBA - Marketing',
+        curriculum: [
+          'Digital Marketing Strategy',
+          'Brand Management & Positioning',
+          'Consumer Psychology & Behavior',
+          'Market Research & Analytics',
+          'Marketing Automation',
+          'Content & Social Media Strategy',
+          'Pricing & Product Strategy',
+          'Customer Relationship Management'
+        ],
+        outcomes: [
+          '✓ Marketing Manager building brand presence and awareness',
+          '✓ Digital Marketing Head managing online campaigns',
+          '✓ Product Manager launching and scaling products',
+          '✓ Brand Manager for consumer goods and services',
+          '✓ Marketing Director or CMO (Chief Marketing Officer)',
+          '✓ Average salary: ₹8-12 LPA (starting), ₹28+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Digital marketing budgets increasing 25% annually',
+          '🔹 E-commerce and D2C brands creating massive marketing roles',
+          '🔹 Data-driven marketing becoming essential competitive differentiator',
+          '🔹 Influencer marketing and social commerce driving new positions',
+          '🔹 Brand building and customer experience critical for retention'
+        ],
+        skills: ['Digital Marketing', 'SEO/SEM', 'Social Media', 'Content Marketing', 'Analytics', 'Brand Strategy', 'Data Interpretation', 'Campaign Management', 'CRM Systems', 'Marketing Automation']
+      },
+      'mba-finance': {
+        title: 'MBA - Finance',
+        curriculum: [
+          'Corporate Finance & Valuation',
+          'Investment Analysis & Portfolio Management',
+          'Risk Management & Derivatives',
+          'Financial Modeling & Analysis',
+          'Mergers & Acquisitions',
+          'Treasury Management',
+          'International Finance',
+          'Financial Reporting & Compliance'
+        ],
+        outcomes: [
+          '✓ Investment Banker handling M&A transactions',
+          '✓ Financial Analyst evaluating stocks and securities',
+          '✓ CFO (Chief Financial Officer) managing corporate finances',
+          '✓ Risk Manager at financial institutions and corporations',
+          '✓ Private Equity or Venture Capital professional',
+          '✓ Average salary: ₹10-15 LPA (starting), ₹50+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Global M&A activity reaching record highs',
+          '🔹 Fintech disruption creating demand for finance expertise',
+          '🔹 Corporate expansion and restructuring ongoing',
+          '🔹 Financial literacy increasingly important in business',
+          '🔹 Cryptocurrency and digital assets creating new opportunities'
+        ],
+        skills: ['Financial Analysis', 'Valuation', 'Excel & Modeling', 'Accounting', 'Risk Assessment', 'Investment Analysis', 'Compliance', 'Data Analytics', 'Capital Markets', 'Treasury Management']
+      },
+      'mba-ib': {
+        title: 'MBA - International Business',
+        curriculum: [
+          'Global Trade & Export-Import',
+          'International Finance & Currency',
+          'Cross-Cultural Management',
+          'Global Supply Chain',
+          'International Marketing Strategy',
+          'Geopolitics & Business Environment',
+          'Foreign Direct Investment',
+          'International Negotiations'
+        ],
+        outcomes: [
+          '✓ International Business Executive expanding markets globally',
+          '✓ Export-Import Manager handling global operations',
+          '✓ Global Supply Chain Manager optimizing logistics',
+          '✓ International Marketing Manager for multinational brands',
+          '✓ Consultant helping companies enter new markets',
+          '✓ Average salary: ₹9-13 LPA (starting), ₹32+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Globalization and trade creating international business roles',
+          '🔹 Companies expanding to emerging markets need local expertise',
+          '🔹 Supply chain resilience and diversification critical post-COVID',
+          '🔹 India becoming global manufacturing and export hub',
+          '🔹 Cross-border e-commerce and digital business expanding rapidly'
+        ],
+        skills: ['Trade Compliance', 'Forex Management', 'Supply Chain', 'Market Research', 'Cultural Intelligence', 'Negotiation', 'Language Skills', 'International Regulations', 'Data Analysis', 'Logistics']
+      },
+      'mba-ops': {
+        title: 'MBA - Operations Management',
+        curriculum: [
+          'Supply Chain Optimization',
+          'Lean & Six Sigma Methodologies',
+          'Process Improvement',
+          'Quality Management Systems',
+          'Inventory & Production Planning',
+          'Logistics & Distribution',
+          'Operations Strategy',
+          'Sustainability in Operations'
+        ],
+        outcomes: [
+          '✓ Operations Manager optimizing production and efficiency',
+          '✓ Supply Chain Manager reducing costs and improving delivery',
+          '✓ Quality Manager ensuring compliance and excellence',
+          '✓ Lean/Six Sigma Black Belt driving continuous improvement',
+          '✓ Operations Director or VP of Operations',
+          '✓ Average salary: ₹8-12 LPA (starting), ₹28+ LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Manufacturing sector competing on efficiency and quality',
+          '🔹 Supply chain resilience becoming strategic differentiator',
+          '🔹 Sustainability and ESG goals requiring operational changes',
+          '🔹 Industry 4.0 digitalization creating new operational roles',
+          '🔹 Every company optimizing costs - operations expertise high value'
+        ],
+        skills: ['Supply Chain', 'Lean Six Sigma', 'Process Mapping', 'ERP Systems', 'Data Analysis', 'Quality Management', 'Project Management', 'Logistics', 'Cost Optimization', 'Performance Metrics']
+      },
+      'bba': {
+        title: 'BBA - Bachelor of Business Administration',
+        curriculum: [
+          'Business Management & Organization',
+          'Financial Accounting & Analysis',
+          'Marketing Management',
+          'Human Resource Management',
+          'Business Communication',
+          'Entrepreneurship & Business Plan',
+          'International Business',
+          'Business Ethics & Corporate Governance'
+        ],
+        outcomes: [
+          '✓ Management Trainee in FMCG, retail, or banking sectors',
+          '✓ Business Analyst evaluating operations and processes',
+          '✓ Team Leader/Supervisor in various departments',
+          '✓ Relationship Manager in financial services',
+          '✓ Entrepreneur starting own venture',
+          '✓ Average salary: ₹3-5 LPA (starting), ₹12-18 LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 BBA graduates fast-tracked to management roles in corporations',
+          '🔹 Business fundamentals essential for any career',
+          '🔹 MBA feeder program - many pursue higher studies',
+          '🔹 Startup ecosystem actively hiring business graduates',
+          '🔹 Versatile degree opening opportunities across all industries'
+        ],
+        skills: ['Business Analysis', 'Financial Management', 'Marketing', 'HR Basics', 'Communication', 'Leadership', 'Problem Solving', 'Excel', 'Presentation', 'Decision Making']
+      },
+      'bca': {
+        title: 'BCA - Bachelor of Computer Applications',
+        curriculum: [
+          'Programming Languages (C, Java, Python)',
+          'Web Application Development',
+          'Database Management Systems',
+          'Software Engineering & Development',
+          'Network Administration',
+          'Mobile Application Development',
+          'Data Structures & Algorithms',
+          'System Administration & Maintenance'
+        ],
+        outcomes: [
+          '✓ Software Developer at IT companies and startups',
+          '✓ Web Developer building responsive web applications',
+          '✓ Database Administrator managing enterprise databases',
+          '✓ System Administrator for IT infrastructure',
+          '✓ Mobile App Developer for iOS/Android platforms',
+          '✓ Average salary: ₹4-6 LPA (starting), ₹15-20 LPA (5 years)'
+        ],
+        relevance: [
+          '🔹 Software developers in acute shortage globally',
+          '🔹 BCA graduates pipeline for IT industry workforce',
+          '🔹 Digital services and custom software always in demand',
+          '🔹 Remote work opportunities for BCA professionals',
+          '🔹 Pathway to advanced specializations in AI, Cloud, Security'
+        ],
+        skills: ['Java', 'Python', 'JavaScript', 'SQL', 'HTML/CSS', 'PHP', 'Web Frameworks', 'Database Design', 'API Development', 'Git/Version Control']
+      }
+    };
+    
+    // Category filtering
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const subcategoryTabs = document.querySelectorAll('.subcategory-tab');
+    const courseCards = document.querySelectorAll('.course-card');
+    const aitSubcategories = document.getElementById('ait-subcategories');
+    const courseDetailModal = document.getElementById('course-detail-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    
+    let currentMainCategory = 'all';
+    let currentSubcategory = 'btech';
+    
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        currentMainCategory = tab.dataset.category;
+        
+        if (currentMainCategory === 'ait') {
+          aitSubcategories.classList.remove('hidden');
+          currentSubcategory = 'btech';
+          subcategoryTabs.forEach(st => st.classList.remove('active'));
+          document.querySelector('[data-subcategory="btech"]').classList.add('active');
+          filterCourses('ait', 'btech');
+        } else {
+          aitSubcategories.classList.add('hidden');
+          filterCourses(currentMainCategory);
+        }
+      });
+    });
+    
+    subcategoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        subcategoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        currentSubcategory = tab.dataset.subcategory;
+        filterCourses(currentMainCategory, currentSubcategory);
+      });
+    });
+    
+    function filterCourses(mainCategory, subCategory = null) {
+      courseCards.forEach(card => {
+        let shouldShow = false;
+        
+        if (mainCategory === 'all') {
+          shouldShow = true;
+        } else if (mainCategory === 'ait' && subCategory) {
+          shouldShow = card.dataset.subcategory === subCategory;
+        } else if (mainCategory === 'aips') {
+          shouldShow = card.dataset.category === 'aips';
+        }
+        
+        if (shouldShow) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeIn 0.4s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    
+    // Modal functionality for course details
+    document.querySelectorAll('.explore-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const courseCard = e.target.closest('.course-card');
+        const courseId = courseCard.dataset.courseId;
+        const courseData = courseDetails[courseId];
+        
+        if (courseData) {
+          document.getElementById('modal-course-title').textContent = courseData.title;
+          
+          // Populate curriculum
+          const curriculumDiv = document.getElementById('modal-curriculum');
+          curriculumDiv.innerHTML = courseData.curriculum.map(item => 
+            `<div class="curriculum-item">${item}</div>`
+          ).join('');
+          
+          // Populate outcomes
+          const outcomesDiv = document.getElementById('modal-outcomes');
+          outcomesDiv.innerHTML = courseData.outcomes.map(outcome => 
+            `<div class="outcome-item"><span style="color: #10b981; font-weight: bold;">•</span><span>${outcome}</span></div>`
+          ).join('');
+          
+          // Populate relevance
+          const relevanceDiv = document.getElementById('modal-relevance');
+          relevanceDiv.innerHTML = courseData.relevance.map(rel => 
+            `<div class="relevance-item"><span style="color: #f59e0b; font-weight: bold;">•</span><span>${rel}</span></div>`
+          ).join('');
+          
+          // Populate skills
+          const skillsDiv = document.getElementById('modal-skills');
+          skillsDiv.innerHTML = courseData.skills.map(skill => 
+            `<div class="skill-badge">${skill}</div>`
+          ).join('');
+          
+          courseDetailModal.classList.remove('hidden');
+        }
+      });
+    });
+    
+    closeModalBtn.addEventListener('click', () => {
+      courseDetailModal.classList.add('hidden');
+    });
+    
+    courseDetailModal.addEventListener('click', (e) => {
+      if (e.target === courseDetailModal) {
+        courseDetailModal.classList.add('hidden');
+      }
+    });
+    
+    // Add fadeIn animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Element SDK Implementation
+    async function onConfigChange(cfg) {
+      const institutionName = document.getElementById('institution-name');
+      const tagline = document.getElementById('tagline');
+      const exploreButtons = document.querySelectorAll('.explore-btn');
+      
+      if (institutionName) {
+        institutionName.textContent = cfg.institution_name || defaultConfig.institution_name;
+        institutionName.style.fontFamily = `${cfg.font_family || defaultConfig.font_family}, Georgia, serif`;
+      }
+      
+      if (tagline) {
+        tagline.textContent = cfg.tagline || defaultConfig.tagline;
+      }
+      
+      exploreButtons.forEach(btn => {
+        btn.textContent = cfg.explore_button_text || defaultConfig.explore_button_text;
+      });
+      
+      const baseSize = cfg.font_size || defaultConfig.font_size;
+      document.querySelectorAll('.font-heading').forEach(el => {
+        if (el.classList.contains('text-4xl') || el.classList.contains('text-5xl')) {
+          el.style.fontSize = `${baseSize * 2.5}px`;
+        } else if (el.classList.contains('text-xl')) {
+          el.style.fontSize = `${baseSize * 1.25}px`;
+        }
+      });
+    }
+    
+    function mapToCapabilities(cfg) {
+      return {
+        recolorables: [
+          {
+            get: () => cfg.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              cfg.primary_color = value;
+              window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => cfg.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              cfg.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => cfg.text_color || defaultConfig.text_color,
+            set: (value) => {
+              cfg.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => cfg.font_family || defaultConfig.font_family,
+          set: (value) => {
+            cfg.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => cfg.font_size || defaultConfig.font_size,
+          set: (value) => {
+            cfg.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(cfg) {
+      return new Map([
+        ["institution_name", cfg.institution_name || defaultConfig.institution_name],
+        ["tagline", cfg.tagline || defaultConfig.tagline],
+        ["explore_button_text", cfg.explore_button_text || defaultConfig.explore_button_text]
+      ]);
+    }
+    
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ca98d05c68b5649',t:'MTc3MDUzNzE4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
